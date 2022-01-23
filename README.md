@@ -1,5 +1,9 @@
 # wordle
 
+## what is wordle?
+
+https://www.powerlanguage.co.uk/wordle/
+
 ## preparing
 
 ```
