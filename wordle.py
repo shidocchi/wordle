@@ -19,20 +19,21 @@ class Wordle:
   def ishitblow(self, hitblow):
     return not hitblow.strip(self.HIT + self.BLOW + self.UNUSED)
 
-  def _hitblow(self, word, guess):
-    start = {}
-    for i,ch in enumerate(guess):
-      x = word.find(ch, start.get(ch,-1)+1)
-      start[ch] = x
-      if x == -1:
-        yield self.UNUSED
-      elif x == i:
-        yield self.HIT
-      else:
-        yield self.BLOW
-
   def hitblow(self, word, guess):
-    return ''.join(self._hitblow(word, guess))
+    w = list(word)
+    g = list(guess)
+    for i,ch in enumerate(g):
+      if w[i] == ch:
+        g[i] = self.HIT
+        w[i] = None
+    for i,ch in enumerate(g):
+      if ch != self.HIT:
+        if ch in w:
+          g[i] = self.BLOW
+          w[w.index(ch)] = None
+        else:
+          g[i] = self.UNUSED
+    return ''.join(g)
 
   def __len__(self):
     return len(self.hbs)

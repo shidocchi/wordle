@@ -27,14 +27,14 @@ class WordleTest(unittest.TestCase):
     self.assertEqual(w.hitblow('robot', 'cocoa'), '-H-H-')
 
   def test_hitblow4(self):
-    """same letters blow twice"""
+    """same letters hit and blow"""
     w = Wordle()
-    self.assertEqual(w.hitblow('robot', 'taboo'), 'B-HBB')
+    self.assertEqual(w.hitblow('robot', 'taboo'), 'B-HHB')
 
   def test_hitblow5(self):
-    """same letters blow once"""
+    """same letters hit and not blow"""
     w = Wordle()
-    self.assertEqual(w.hitblow('tacos', 'cocoa'), 'BB--B')
+    self.assertEqual(w.hitblow('tacos', 'cocoa'), '--HHB')
 
 if __name__ == "__main__":
     unittest.main()
