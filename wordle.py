@@ -1,3 +1,5 @@
+import re
+
 __version__ = '0.1.0'
 
 class Wordle:
@@ -6,6 +8,9 @@ class Wordle:
   HIT = 'H'
   BLOW = 'B'
   UNUSED = '-'
+
+  chars = re.escape(f'{HIT}{BLOW}{UNUSED}')
+  rx_chars = re.compile(f'[{chars}]+')
 
   def __init__(self):
     self.clear()
@@ -17,7 +22,7 @@ class Wordle:
     self.hbs.pop()
 
   def ishitblow(self, hitblow):
-    return not hitblow.strip(self.HIT + self.BLOW + self.UNUSED)
+    return self.rx_chars.fullmatch(hitblow)
 
   def hitblow(self, word, guess):
     w = list(word)

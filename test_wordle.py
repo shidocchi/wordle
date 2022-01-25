@@ -11,6 +11,14 @@ class WordleTest(unittest.TestCase):
   def tearDown(self):
     pass
 
+  def test_ishitblow(self):
+    """validate hitblow"""
+    w = Wordle()
+    self.assertTrue(w.ishitblow('-H-B-'))
+    self.assertFalse(w.ishitblow('-X-B-'))
+    self.assertFalse(w.ishitblow('-H-O-'))
+    self.assertFalse(w.ishitblow('=H=B='))
+
   def test_hitblow1(self):
     """all hits"""
     w = Wordle()
