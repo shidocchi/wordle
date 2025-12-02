@@ -1,5 +1,10 @@
 # wordle
 
+wordle solver
+
+- 英単語当てゲーム wordle の解法支援プログラムです
+- 5文字の「単語」「ヒット＆ブローの文字列」を入力すると、一致する英単語を一覧表示します
+
 ## what is wordle?
 
 https://www.powerlanguage.co.uk/wordle/
